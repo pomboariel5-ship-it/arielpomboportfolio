@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ariel G. Pombo — Portfolio</title>
+<meta name="description" content="Portfolio of Ariel G. Pombo, an Information Technology undergraduate who builds clean web experiences with HTML, CSS, and JavaScript.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fbfbfa;
+  color: #17171f;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: #2f6fed;
+}
+
+a:focus {
+  outline: 2px solid #2f6fed;
+  outline-offset: 2px;
+}
+
+h1, h2, h3 {
+  font-family: "Space Grotesk", Arial, sans-serif;
+  line-height: 1.15;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #17171f;
+  color: #fbfbfa;
+  padding: 12px 20px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: #fbfbfa;
+  border-bottom: 1px solid #e8e8e2;
+}
+
+.header-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 12px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: #17171f;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: #2f6fed;
+}
+
+.main-nav {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: #5a5a63;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.main-nav a:hover {
+  color: #17171f;
+}
+
+.avatar {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #d6e2fd;
+  background: #e9f0fe;
+}
+
+.avatar-sm {
+  width: 36px;
+  height: 36px;
+}
+
+.avatar-lg {
+  width: 260px;
+  height: 260px;
+}
+
+.avatar img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+section {
+  padding: 80px 0 64px;
+  border-bottom: 1px solid #e8e8e2;
+}
+
+.inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5a5a63;
+  margin-bottom: 16px;
+}
+
+.eyebrow .num {
+  color: #2f6fed;
+}
+
+section h2 {
+  font-size: 32px;
+  margin: 0 0 20px 0;
+}
+
+.hero {
+  background: linear-gradient(#edf2ff, #fbfbfa);
+  padding-top: 96px;
+  padding-bottom: 88px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 48px;
+}
+
+.badge {
+  display: inline-block;
+  background: #e9f0fe;
+  color: #1f4fc4;
+  border: 1px solid #d6e2fd;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+
+.badge .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  margin-right: 8px;
+}
+
+.hero h1 {
+  font-size: 56px;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.hero .role {
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #2f6fed;
+  margin: 12px 0 0 0;
+}
+
+.hero .tagline {
+  font-size: 18px;
+  color: #5a5a63;
+  max-width: 46ch;
+  margin: 24px 0 0 0;
+}
+
+.hero-links {
+  margin-top: 40px;
+}
+
+.hero-links a {
+  display: inline-block;
+  background: #2f6fed;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 999px;
+}
+
+.hero-links a:hover {
+  background: #1f4fc4;
+}
+
+.about p {
+  max-width: 62ch;
+  color: #5a5a63;
+  margin: 0;
+}
+
+.about p + p {
+  margin-top: 20px;
+}
+
+.skill-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.skill-group {
+  background: #ffffff;
+  border: 1px solid #e8e8e2;
+  border-top: 3px solid #2f6fed;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.group-tools {
+  border-top-color: #b45309;
+}
+
+.group-other {
+  border-top-color: #0e9f6e;
+}
+
+.skill-group h3 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #2f6fed;
+  margin: 0 0 14px 0;
+}
+
+.group-tools h3 {
+  color: #b45309;
+}
+
+.group-other h3 {
+  color: #0e9f6e;
+}
+
+.skill-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-group li {
+  padding: 4px 0;
+}
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e2;
+  border-left: 4px solid #2f6fed;
+  border-radius: 10px;
+  padding: 32px;
+  max-width: 720px;
+}
+
+.project-card h3 {
+  font-size: 23px;
+  margin: 0;
+}
+
+.project-card .desc {
+  color: #5a5a63;
+  font-size: 15px;
+  max-width: 56ch;
+  margin: 12px 0 18px 0;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: #1f4fc4;
+  background: #e9f0fe;
+  border: 1px solid #d6e2fd;
+  border-radius: 999px;
+  padding: 4px 11px;
+}
+
+.project-links {
+  margin-top: 22px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+
+.column h3.col-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #5a5a63;
+  border-top: 3px solid #2f6fed;
+  padding-top: 16px;
+  margin-bottom: 8px;
+}
+
+.entry {
+  padding: 20px 0;
+  border-bottom: 1px solid #e8e8e2;
+}
+
+.entry:last-child {
+  border-bottom: none;
+}
+
+.entry .when {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #b45309;
+}
+
+.entry h3 {
+  font-size: 18px;
+  margin: 4px 0 2px 0;
+}
+
+.entry .where {
+  color: #2f6fed;
+  font-size: 15px;
+}
+
+.entry p {
+  color: #5a5a63;
+  font-size: 14px;
+  margin: 4px 0 0 0;
+}
+
+.contact {
+  background: #10162b;
+  color: #e5e7eb;
+  border-bottom: none;
+}
+
+.contact .eyebrow {
+  color: #9aa3c0;
+}
+
+.contact .eyebrow .num {
+  color: #7da2ff;
+}
+
+.contact h2 {
+  color: #ffffff;
+}
+
+.contact p {
+  color: #9aa3c0;
+  max-width: 50ch;
+  margin: 0;
+}
+
+.contact-methods {
+  margin-top: 32px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+}
+
+.contact-methods a {
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 2px;
+}
+
+.contact-methods a:hover {
+  color: #a5c0ff;
+  border-color: #a5c0ff;
+}
+
+footer {
+  background: #10162b;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px 0 48px;
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+@media (max-width: 700px) {
+  .skill-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero .tagline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-links {
+    display: flex;
+    justify-content: center;
+  }
+
+  .avatar-lg {
+    width: 190px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 560px) {
+  .header-inner {
+    padding: 12px 20px;
+  }
+
+  .main-nav {
+    gap: 18px;
+  }
+
+  .inner {
+    padding: 0 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#home">
+      <span class="avatar avatar-sm"><img src="profile.jpg" alt=""></span>
+      Ariel G. Pombo
+    </a>
+    <nav class="main-nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="home">
+    <div class="inner">
+      <div class="hero-grid">
+        <div>
+          <span class="badge"><span class="dot"></span> Open to internships</span>
+          <span class="eyebrow"><span class="num">00</span> Introduction</span>
+          <h1>Ariel G. Pombo</h1>
+          <p class="role">Bachelor of Science in Information Technology</p>
+          <p class="tagline">Undergraduate IT student focused on building clean, responsive web experiences with HTML, CSS, and JavaScript — and currently looking for an internship to grow further.</p>
+          <div class="hero-links">
+            <a href="mailto:pomboariel5@gmail.com">Email me</a>
+          </div>
+        </div>
+        <div class="avatar avatar-lg">
+          <img src="profile.jpg" alt="Portrait of Ariel G. Pombo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="inner">
+      <span class="eyebrow"><span class="num">01</span> About</span>
+      <h2>About me</h2>
+      <p>I'm Ariel, an undergraduate student pursuing a Bachelor of Science in Information Technology. I enjoy turning ideas into working web pages, and I'm building my foundation in front-end development one project at a time.</p>
+      <p>Right now I'm focused on strengthening my HTML, CSS, and JavaScript skills — and on finding an internship where I can learn from a real team and contribute from day one.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="inner">
+      <span class="eyebrow"><span class="num">02</span> Skills</span>
+      <h2>What I work with</h2>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+        <div class="skill-group group-tools">
+          <h3>Tools</h3>
+          <ul>
+            <li>VS Code</li>
+            <li>Chrome Browser</li>
+          </ul>
+        </div>
+        <div class="skill-group group-other">
+          <h3>Other</h3>
+          <ul>
+            <li>Basic Computer Skills</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="inner">
+      <span class="eyebrow"><span class="num">03</span> Projects</span>
+      <h2>Selected work</h2>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p class="desc">This portfolio — a fast, responsive, single-file site built from scratch in plain HTML, CSS, and JavaScript. No frameworks, no build tools: just the fundamentals, and designed to be easy to update.</p>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a href="#home">Live demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="inner">
+      <span class="eyebrow"><span class="num">04</span> Experience &amp; Education</span>
+      <h2>Background</h2>
+      <div class="columns">
+        <div class="column">
+          <h3 class="col-title">Experience</h3>
+          <div class="entry">
+            <span class="when">January 2025 — April 2025</span>
+            <h3>Work Immersion</h3>
+            <div class="where">San Julian Police Station</div>
+            <p>Senior high school work immersion at the municipal police station, where I learned basic office and administrative tasks.</p>
+          </div>
+        </div>
+        <div class="column">
+          <h3 class="col-title">Education</h3>
+          <div class="entry">
+            <span class="when">March 2019</span>
+            <h3>Elementary</h3>
+            <div class="where">Libas Elementary School</div>
+            <p>Completed elementary education.</p>
+          </div>
+          <div class="entry">
+            <span class="when">June 2019 — May 2025</span>
+            <h3>Junior &amp; Senior High School</h3>
+            <div class="where">San Julian National High School</div>
+            <p>Completed junior and senior high school education.</p>
+          </div>
+          <div class="entry">
+            <span class="when">August 2025 — Present</span>
+            <h3>Bachelor of Science in Information Technology</h3>
+            <div class="where">Eastern Samar State University</div>
+            <p>[Relevant coursework, honors, or focus area.]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="inner">
+      <span class="eyebrow"><span class="num">05</span> Contact</span>
+      <h2>Get in touch</h2>
+      <p>Open to internships and new opportunities — I'd love to hear from you. Reach out any time.</p>
+      <div class="contact-methods">
+        <a href="mailto:pomboariel5@gmail.com">pomboariel5@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year">2026</span> Ariel G. Pombo. All rights reserved.
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
